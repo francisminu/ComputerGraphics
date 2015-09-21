@@ -11,7 +11,6 @@
 #include <math.h>
 
 
-
 int frontCount=0;
 int backCount=3;
 int octantVal;
@@ -266,14 +265,27 @@ bool fillHouse = false;
 	void drawPolygon()
 	{
 		// Drawing the hexagon
+		int x1,y1,x2,y2,i;
+		glColor3f(50.0f,128.0f,60.0f);
 
-		glColor3f(140.0f,0.0f,0.0f);
-		drawLine(430,470,450,470);
+		for (i = 0; i <= 6; i++)
+		{
+    			x1 = 450 + 30 * cos(i * 2*3.14/6);
+    			y1 = 450 + 30 * sin(i * 2*3.14/6);
+			if(i>0)
+			{
+				drawLine(x1,y1,x2,y2);
+			}
+			x2=x1;
+			y2=y1;
+		}
+
+		/*drawLine(430,470,450,470);
 		drawLine(430,440,450,440);
 		drawLine(420,455,430,440);
 		drawLine(450,440,460,455);
 		drawLine(450,470,460,455);		
-		drawLine(420,455,430,470);
+		drawLine(420,455,430,470);*/
 
 	}
 
@@ -337,89 +349,115 @@ bool fillHouse = false;
 
 	void dispName()
 	{
-		//drawLine(100,350,700,350);
-		//drawLine(100,450,700,450);
+		
+		glColor3f(0.0f,255.0f,128.0f);
 		//M
-		drawLine(100,350,100,450);
-		drawLine(120,350,120,430);
-		drawLine(130,450,150,420);
-		drawLine(150,420,170,450);
-		drawLine(120,430,140,400);
-		drawLine(140,400,160,400);
-		drawLine(160,400,180,430);
-		drawLine(180,430,180,350);
-		drawLine(200,450,200,350);
-		drawLine(100,450,130,450);
-		drawLine(170,450,200,450);
-		drawLine(100,350,120,350);
-		drawLine(180,350,200,350);
+		drawLine(100,450,100,550);
+		drawLine(120,450,120,530);
+		drawLine(130,550,150,520);
+		drawLine(150,520,170,550);
+		drawLine(120,530,140,500);
+		drawLine(140,500,160,500);
+		drawLine(160,500,180,530);
+		drawLine(180,530,180,450);
+		drawLine(200,550,200,450);
+		drawLine(100,550,130,550);
+		drawLine(170,550,200,550);
+		drawLine(100,450,120,450);
+		drawLine(180,450,200,450);
 		//I
-		drawLine(230,350,230,450);
-		drawLine(230,450,250,450);
-		drawLine(250,450,250,350);
-		drawLine(250,350,230,350);	
+		drawLine(230,450,230,550);
+		drawLine(230,550,250,550);
+		drawLine(250,550,250,450);
+		drawLine(250,450,230,450);	
 
 		//N
-		drawLine(280,350,280,450);
-		drawLine(300,350,300,430);
-		drawLine(310,450,340,370);
-		drawLine(300,430,330,350);
-		drawLine(340,370,340,450);
-		drawLine(360,350,360,450);
-		drawLine(280,450,310,450);
-		drawLine(330,350,360,350);
-		drawLine(280,350,300,350);
-		drawLine(340,450,360,450);
-		drawLine(360,350,340,350);
+		drawLine(280,450,280,550);
+		drawLine(300,450,300,530);
+		drawLine(310,550,340,470);
+		drawLine(300,530,330,450);
+		drawLine(340,470,340,550);
+		drawLine(360,450,360,550);
+		drawLine(280,550,310,550);
+		drawLine(330,450,360,450);
+		drawLine(280,450,300,450);
+		drawLine(340,550,360,550);
+		drawLine(360,450,340,450);
 		
 		//U
 		
-		drawLine(390,370,390,450);
-		drawLine(410,380,410,450);
-		drawLine(450,380,450,450);
-		drawLine(470,370,470,450);
-		drawLine(410,350,450,350);
-		drawLine(420,370,440,370);
-		drawLine(390,370,410,350);
-		drawLine(410,380,420,370);
-		drawLine(450,350,470,370);
-		drawLine(450,380,440,370);
-		drawLine(390,450,410,450);
-		drawLine(450,450,470,450);
+		drawLine(390,470,390,550);
+		drawLine(410,480,410,550);
+		drawLine(450,480,450,550);
+		drawLine(470,470,470,550);
+		drawLine(410,450,450,450);
+		drawLine(420,470,440,470);
+		drawLine(390,470,410,450);
+		drawLine(410,480,420,470);
+		drawLine(450,450,470,470);
+		drawLine(450,480,440,470);
+		drawLine(390,550,410,550);
+		drawLine(450,550,470,550);
 		
 
 		//F
-		drawLine(100,200,100,300);
-		drawLine(100,300,160,300);
-		drawLine(160,300,160,280);
-		drawLine(160,280,120,280);
-		drawLine(120,280,120,265);
-		drawLine(120,260,150,260);
-		drawLine(150,260,150,240);
-		drawLine(150,240,120,240);
-		drawLine(120,240,120,200);
-		drawLine(120,200,100,200);
+		drawLine(100,300,100,400);
+		drawLine(100,400,160,400);
+		drawLine(160,400,160,380);
+		drawLine(160,380,120,380);
+		drawLine(120,380,120,360);
+		drawLine(120,360,150,360);
+		drawLine(150,360,150,340);
+		drawLine(150,340,120,340);
+		drawLine(120,340,120,300);
+		drawLine(120,300,100,300);
 
 		
 		//R
-		drawLine(190,200,190,300);
-		drawLine(190,300,240,300);
-		drawLine(240,300,250,290);
-		drawLine(250,290,250,250);
-		drawLine(250,250,240,240);
-		drawLine(240,240,235,240);
-		drawLine(235,240,250,200);
-		drawLine(250,200,235,200);
-		drawLine(235,200,220,240);
-		drawLine(220,240,210,240);
-		drawLine(210,240,210,200);
-		drawLine(210,200,190,200);
-		drawLine(210,280,225,280);
-		drawLine(225,280,230,275);
-		drawLine(230,275,230,265);
-		drawLine(230,265,225,260);
-		drawLine(225,260,210,260);
-		drawLine(210,260,210,280);
+		drawLine(190,300,190,400);
+		drawLine(190,400,240,400);
+		drawLine(240,400,250,390);
+		drawLine(250,390,250,350);
+		drawLine(250,350,240,340);
+		drawLine(240,340,235,340);
+		drawLine(235,340,250,300);
+		drawLine(250,300,235,300);
+		drawLine(235,300,220,340);
+		drawLine(220,340,210,340);
+		drawLine(210,340,210,300);
+		drawLine(210,300,190,300);
+		drawLine(210,380,225,380);
+		drawLine(225,380,230,375);
+		drawLine(230,375,230,365);
+		drawLine(230,365,225,360);
+		drawLine(225,360,210,360);
+		drawLine(210,360,210,380);
+
+		//A
+		drawLine(280,300,310,400);
+		drawLine(280,300,300,300);
+		drawLine(310,400,330,400);		
+		drawLine(330,400,360,300);
+		drawLine(340,300,360,300);
+		drawLine(300,300,305,330);
+		drawLine(340,300,335,330);
+		drawLine(305,330,335,330);
+		drawLine(320,390,305,340);
+		drawLine(320,390,335,340);
+		drawLine(305,340,335,340);
+
+		//N
+		drawLine(390,300,390,400);
+		drawLine(410,300,410,380);
+		drawLine(420,400,450,320);
+		drawLine(410,380,440,300);
+		drawLine(450,320,450,400);
+		drawLine(470,300,470,400);
+		drawLine(390,400,420,400);
+		drawLine(440,300,470,300);
+		drawLine(390,300,410,300);
+		drawLine(450,400,470,400);
+		drawLine(470,300,450,300);
 	}
 
 	void dispFillHouse()
@@ -430,7 +468,6 @@ bool fillHouse = false;
 	void dispLine(void)
 	{
 	     glClear(GL_COLOR_BUFFER_BIT); // clears the screen
-	     //dispHouseShape();
 	     if(drawName==true){
 		     dispName();}
 	     if(drawHouse==true){
@@ -465,18 +502,16 @@ bool fillHouse = false;
 						fillHouse = false;
 						break;
 					}
-					if(frontCount==2)
+					if(frontCount>=2)
 					{
 						drawName = false;
 						drawHouse = false;
 						fillHouse = true;
+						backCount=2;
+						frontCount=2;
 						break;
 					}
-					if(frontCount>=3)
-					{
-						backCount==2;
-						break;
-					}
+					
 			case 'a':
 			{
 				backCount = backCount - 1;
@@ -494,16 +529,11 @@ bool fillHouse = false;
 					fillHouse = false;
 					break;
 				}
-				else if(backCount==0)
+				else if(backCount<=0)
 				{
 					drawName = true;
 					drawHouse = false;
 					fillHouse = false;
-					
-					break;
-				}
-				else if(backCount<0)
-				{
 					frontCount=0;	
 					break;
 				}
